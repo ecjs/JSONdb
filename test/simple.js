@@ -1,6 +1,7 @@
 var chai = require('chai');
 var chaihttp = require('chai-http');
 var expect = require('chai').expect;
+var app = require('../index.js');
 
 chai.use(chaihttp);
 
@@ -10,7 +11,7 @@ describe('Simple JSON API', function() {
   .get('/api/mark')
   .end(function(err, res) {
      expect(err).to.be.null;
-     expect(res).to.have.status(200);
+     expect(res).to.have.status(400);
      expect(res).to.be.json;
    });
   });
