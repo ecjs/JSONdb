@@ -4,6 +4,7 @@
   "description": "JSON db using filesystem",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "grunt test"
   },
   "repository": {
