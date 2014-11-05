@@ -6,7 +6,6 @@ var port = process.env.PORT || 3000;
 
 var jsonParser = bodyParser.json();
 
-
 app.post('/api/:name', jsonParser, function(req, res) {
   if (!req.body) return res.sendStatus(400);
   console.log(req.body);
@@ -17,13 +16,19 @@ app.post('/api/:name', jsonParser, function(req, res) {
   res.json(req.body);
 });
 
+var jsonFile;
+
 app.get('/api/:name', function(req, res) {
   fs.readFile('./JSON/' + req.params.name + '.json', 'utf-8', function(err, data) {
-    if (err) throw err;
-    var newJson = JSON.parse(data);
-    res.json(newJson);
+    if (err) console.log(err);
+    jsonFile = JSON.parse(data);
+    res.json(jsonFile);
   });
 });
 
+app.get('/api/', function(req, res) {
+  res.json({message: 'welcome to the api!'});
+});
+
 app.listen(port);
-console.log('listening on port: ' + port);
+console.log('listening on port : ' + port);
