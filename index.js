@@ -26,5 +26,9 @@ app.get('/api/:name', function(req, res) {
   });
 });
 
+app.get('/api/', function(req, res) {
+  res.json({message: 'welcome to the api!'});
+});
+
 app.listen(port);
 console.log('listening on port : ' + port);
