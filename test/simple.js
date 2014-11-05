@@ -8,6 +8,14 @@ chai.use(chaihttp);
 describe('Simple JSON API', function() {
   it('should send the local time', function() {
     chai.request('http://localhost:3000')
+  .post('/api/mark')
+  .send({ name: 'me', key: '123' });
+  });
+});
+
+describe('Simple JSON API', function() {
+  it('should send the local time', function() {
+    chai.request('http://localhost:3000')
   .get('/api/mark')
   .end(function(err, res) {
      expect(err).to.be.null;
