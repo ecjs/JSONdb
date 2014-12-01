@@ -27,7 +27,8 @@ app.get('/api/:name', function(req, res) {
 });
 
 app.get('/api/', function(req, res) {
-  res.json({message: 'welcome to the api!'});
+  res.write('it worked!');
+  res.sendStatus(200);
 });
 
 app.listen(port);
